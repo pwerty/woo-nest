@@ -1,6 +1,10 @@
 import {useState, useEffect } from 'react';
-import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Container } from '@mui/material';
+import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Container, Button } from '@mui/material';
 import axios from 'axios';
+import { Link } from 'react-router-dom'; // import 추가
+
+
+  
 
 interface Board
 {
@@ -32,10 +36,20 @@ function BoardList()
 
     return (
         <Container maxWidth="lg" sx={{ mt: 4}}>
+            
             <Typography variant="h4" component="h1" gutterBottom>
                 게시판
             </Typography>
-
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+    <Typography variant="h4" component="h1">
+      게시판
+    </Typography>
+    <Link to="/board/create">
+      <Button variant="contained" color="primary">
+        글쓰기
+      </Button>
+    </Link>
+  </div>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650}}>
                     <TableHead>
